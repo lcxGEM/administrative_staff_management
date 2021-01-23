@@ -4,4 +4,27 @@
     <select id="queryAll" resultType="com.zzu.staff.management.entity.School">
         select * from school
     </select>
+
+    <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.School">
+        select * from school where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.zzu.staff.management.entity.School">
+        insert into school (name, school_type) values(#{name},#{schoolType})
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from school where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.zzu.staff.management.entity.School">
+        update school set
+        <if test="#{name}!=null">
+            name = #{name},
+        </if>
+        <if test="#{schoolType}>0">
+            school_type = #{schoolType},
+        </if>
+        where id = #{id}
+    </update>
 </mapper>

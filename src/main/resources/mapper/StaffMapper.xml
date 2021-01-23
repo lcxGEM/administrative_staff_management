@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zzu.staff.management.mapper.StaffMapper">
+    <select id="queryAll" resultType="com.zzu.staff.management.entity.Staff">
+        select * from staff
+    </select>
+
+    <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.Staff">
+        select * from staff where id = #{id}
+    </select>
+
+    <insert id="insert" parameterType="com.zzu.staff.management.entity.Staff">
+        insert into staff (name, sex, tel, age, birthday, undergraduate_school, master_school, doctor_school)
+        values(#{name},#{sex},#{tel},#{age},#{birthday},#{undergraduateSchool},#{masterSchool},#{doctorSchool})
+    </insert>
+
+    <delete id="deleteById" parameterType="java.lang.Long">
+        delete from staff where id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.zzu.staff.management.entity.Staff">
+        update staff set
+        <if test="#{name}!=null">
+            name = #{name},
+        </if>
+        <if test="#{tel}!=null">
+            tel = #{tel},
+        </if>
+        <if test="#{age}>0">
+            age = #{age},
+        </if>
+        <if test="#{birthday}!=null">
+            birthday = #{birthday},
+        </if>
+        <if test="#{undergraduateSchool}>0">
+            undergraduate_school = #{undergraduateSchool},
+        </if>
+        <if test="#{masterSchool}>0">
+            master_school = #{masterSchool},
+        </if>
+        <if test="#{doctorSchool}>0">
+            doctor_school = #{doctorSchool},
+        </if>
+        where id = #{id}
+    </update>
+</mapper>

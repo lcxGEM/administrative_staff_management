@@ -14,5 +14,4 @@ public class School {
     private String name;
 
     private Integer schoolType;
-
 }

@@ -10,3 +10,5 @@ spring:
     filters: stat,wall,log4j2 # stat监控统计，和 DruidConfig 中的 statViewServlet 有关
 mybatis:
   mapper-locations: "classpath:mapper/*.xml"
+  configuration:
+    map-underscore-to-camel-case: true
