@@ -5,12 +5,16 @@
         select * from school
     </select>
 
+    <select id="queryAllVo" resultType="com.zzu.staff.management.entity.SchoolVo">
+        select school.id,name,region,school_type,type_name from school inner join school_type on school.school_type = school_type.id
+    </select>
+
     <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.School">
         select * from school where id = #{id}
     </select>
 
     <insert id="insert" parameterType="com.zzu.staff.management.entity.School">
-        insert into school (name, school_type) values(#{name},#{schoolType})
+        insert into school (name, region, school_type) values(#{name},#{region},#{schoolType})
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -22,8 +26,11 @@
         <if test="#{name}!=null">
             name = #{name},
         </if>
-        <if test="#{schoolType}>0">
-            school_type = #{schoolType},
+        <if test="#{region}!=null">
+            region = #{region},
+        </if>
+        <if test="#{schoolType}!=null">
+            school_type = #{schoolType}
         </if>
         where id = #{id}
     </update>

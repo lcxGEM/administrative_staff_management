@@ -28,4 +28,6 @@ public class Staff {
     private Long masterSchool;
 
     private Long doctorSchool;
+
+    private Float compositeIndex;
 }

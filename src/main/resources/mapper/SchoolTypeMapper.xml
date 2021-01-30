@@ -19,22 +19,11 @@
     </delete>
 
     <update id="update" parameterType="com.zzu.staff.management.entity.SchoolType">
-        update school_type set
-        <if test="#{typeName}!=null">
-            type_name = #{typeName},
-        </if>
-        <if test="#{schoolIndex}>0">
+        update school_type set type_name = #{typeName},
             school_index = #{schoolIndex},
-        </if>
-        <if test="#{undergraduateIndex}>0">
             undergraduate_index = #{undergraduateIndex},
-        </if>
-        <if test="#{masterIndex}>0">
             master_index = #{masterIndex},
-        </if>
-        <if test="#{doctorIndex}>0">
-            doctor_index = #{doctorIndex},
-        </if>
+            doctor_index = #{doctorIndex}
         where id = #{id}
     </update>
 </mapper>

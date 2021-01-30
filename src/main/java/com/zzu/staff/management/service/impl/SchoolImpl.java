@@ -1,6 +1,7 @@
 package com.zzu.staff.management.service.impl;
 
 import com.zzu.staff.management.entity.School;
+import com.zzu.staff.management.entity.SchoolVo;
 import com.zzu.staff.management.mapper.SchoolMapper;
 import com.zzu.staff.management.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class SchoolImpl implements SchoolService {
     @Override
     public List<School> queryAll() {
         return schoolMapper.queryAll();
+    }
+
+    @Override
+    public List<SchoolVo> queryAllVo() {
+        return schoolMapper.queryAllVo();
     }
 
     @Override

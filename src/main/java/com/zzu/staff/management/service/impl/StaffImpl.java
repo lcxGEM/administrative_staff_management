@@ -1,6 +1,7 @@
 package com.zzu.staff.management.service.impl;
 
 import com.zzu.staff.management.entity.Staff;
+import com.zzu.staff.management.entity.StaffVo;
 import com.zzu.staff.management.mapper.StaffMapper;
 import com.zzu.staff.management.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class StaffImpl implements StaffService {
     @Override
     public List<Staff> queryAll() {
         return staffMapper.queryAll();
+    }
+
+    @Override
+    public List<StaffVo> queryAllVo() {
+        return staffMapper.queryAllVo();
     }
 
     @Override

@@ -5,6 +5,19 @@
         select * from staff
     </select>
 
+    <select id="queryAllVo" resultType="com.zzu.staff.management.entity.StaffVo">
+        select a2.id,a2.name,tel,undergraduate_school,uschoolname,uschoolindex,master_school,mschoolname,mschoolindex,doctor_school,dschoolname,dschoolindex,composite_index,status from
+        (select staff.id,staff.name,tel,staff.undergraduate_school,school.name as uschoolname,school_type.undergraduate_index as uschoolindex,composite_index,`status`
+         from staff,school,school_type
+         where staff.undergraduate_school = school.id and school.school_type = school_type.id) as a2 left join
+        (select staff.id,school.name as mschoolname,school_type.master_index as mschoolindex,master_school
+         from staff,school,school_type
+         where staff.master_school = school.id and school.school_type = school_type.id) as a1 on a2.id=a1.id left join
+        (select staff.id,school.name as dschoolname,school_type.doctor_index as dschoolindex,doctor_school
+         from staff,school,school_type
+         where staff.doctor_school = school.id and school.school_type = school_type.id) as a3 on a2.id = a3.id
+    </select>
+
     <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.Staff">
         select * from staff where id = #{id}
     </select>
@@ -26,20 +39,20 @@
         <if test="#{tel}!=null">
             tel = #{tel},
         </if>
-        <if test="#{age}>0">
+        <if test="#{age}!=null">
             age = #{age},
         </if>
         <if test="#{birthday}!=null">
             birthday = #{birthday},
         </if>
-        <if test="#{undergraduateSchool}>0">
+        <if test="#{undergraduateSchool}!=null">
             undergraduate_school = #{undergraduateSchool},
         </if>
-        <if test="#{masterSchool}>0">
+        <if test="#{masterSchool}!=null">
             master_school = #{masterSchool},
         </if>
-        <if test="#{doctorSchool}>0">
-            doctor_school = #{doctorSchool},
+        <if test="#{doctorSchool}!=null">
+            doctor_school = #{doctorSchool}
         </if>
         where id = #{id}
     </update>

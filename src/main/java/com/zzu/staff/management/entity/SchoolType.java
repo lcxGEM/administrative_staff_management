@@ -1,23 +1,31 @@
 package com.zzu.staff.management.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class SchoolType {
 
     private Integer id;
 
     private String typeName;
 
-    private Double schoolIndex;
+    private Float schoolIndex;
 
-    private Double undergraduateIndex;
+    private Float undergraduateIndex;
 
-    private Double masterIndex;
+    private Float masterIndex;
 
-    private Double doctorIndex;
+    private Float doctorIndex;
+
+    private Float sumIndex;
+
+    public Float getSumIndex() {
+        Float sum = this.doctorIndex*this.masterIndex*this.undergraduateIndex;
+        BigDecimal b = new BigDecimal(sum);
+        float f1 = b.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        this.sumIndex = f1;
+        return sumIndex;
+    }
 }

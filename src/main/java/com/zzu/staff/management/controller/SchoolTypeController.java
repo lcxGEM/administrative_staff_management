@@ -1,7 +1,37 @@
 package com.zzu.staff.management.controller;
 
-import org.springframework.stereotype.Controller;
+import com.zzu.staff.management.entity.SchoolType;
+import com.zzu.staff.management.service.SchoolTypeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+import java.util.List;
+
+@RestController
+@RequestMapping("/schoolIndex")
 public class SchoolTypeController {
+
+    @Autowired
+    private SchoolTypeService schoolTypeService;
+
+    @GetMapping("/queryAll")
+    public List<SchoolType> queryAll(){
+        return schoolTypeService.queryAll();
+    }
+
+    @GetMapping("/delete/{id}")
+    public int deleteById(@PathVariable("id")Integer id){
+        return schoolTypeService.deleteById(id);
+    }
+
+    @PostMapping("/update")
+    public int update(SchoolType schoolType){
+        return schoolTypeService.update(schoolType);
+    }
+
+    @PostMapping("/add")
+    public int add(SchoolType schoolType){
+        return schoolTypeService.insert(schoolType);
+    }
+
 }
