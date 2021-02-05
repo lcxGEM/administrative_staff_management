@@ -38,4 +38,10 @@ public class StaffController {
     public int update(Staff staff){
         return staffService.update(staff);
     }
+
+    @PostMapping("staffAdd")
+    public int staffAdd(Staff staff){
+        //-1出错
+        return staffService.staffAdd(staff);
+    }
 }

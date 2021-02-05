@@ -18,4 +18,6 @@ public interface StaffService {
     int deleteById(long id);
 
     int update(Staff  staff);
+
+    int staffAdd(Staff staff);
 }

@@ -6,14 +6,14 @@
     </select>
 
     <select id="queryAllVo" resultType="com.zzu.staff.management.entity.StaffVo">
-        select a2.id,a2.name,tel,undergraduate_school,uschoolname,uschoolindex,master_school,mschoolname,mschoolindex,doctor_school,dschoolname,dschoolindex,composite_index,status from
-        (select staff.id,staff.name,tel,staff.undergraduate_school,school.name as uschoolname,school_type.undergraduate_index as uschoolindex,composite_index,`status`
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,dschoolname,composite_index,evaluation from
+        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,evaluation
          from staff,school,school_type
          where staff.undergraduate_school = school.id and school.school_type = school_type.id) as a2 left join
-        (select staff.id,school.name as mschoolname,school_type.master_index as mschoolindex,master_school
+        (select staff.id,school.name as mschoolname,master_school
          from staff,school,school_type
          where staff.master_school = school.id and school.school_type = school_type.id) as a1 on a2.id=a1.id left join
-        (select staff.id,school.name as dschoolname,school_type.doctor_index as dschoolindex,doctor_school
+        (select staff.id,school.name as dschoolname,doctor_school
          from staff,school,school_type
          where staff.doctor_school = school.id and school.school_type = school_type.id) as a3 on a2.id = a3.id
     </select>
@@ -23,8 +23,8 @@
     </select>
 
     <insert id="insert" parameterType="com.zzu.staff.management.entity.Staff">
-        insert into staff (name, sex, tel, age, birthday, undergraduate_school, master_school, doctor_school)
-        values(#{name},#{sex},#{tel},#{age},#{birthday},#{undergraduateSchool},#{masterSchool},#{doctorSchool})
+        insert into staff (name, identity, sex, tel, teacherType, birthday, undergraduate_school, master_school, doctor_school, composite_index, evaluation)
+        values(#{name},#{identity},#{sex},#{tel},#{teacherType},#{birthday},#{undergraduateSchool},#{masterSchool},#{doctorSchool},#{compositeIndex},#{evaluation})
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -40,7 +40,13 @@
             tel = #{tel},
         </if>
         <if test="#{age}!=null">
-            age = #{age},
+            identity = #{identity},
+        </if>
+        <if test="#{teacherType}!=null">
+            teacherType = #{teacherType},
+        </if>
+        <if test="#{sex}!=null">
+            sex = #{sex},
         </if>
         <if test="#{birthday}!=null">
             birthday = #{birthday},
@@ -52,7 +58,10 @@
             master_school = #{masterSchool},
         </if>
         <if test="#{doctorSchool}!=null">
-            doctor_school = #{doctorSchool}
+            doctor_school = #{doctorSchool},
+        </if>
+        <if test="#{evaluation}!=null">
+            evaluation = #{evaluation}
         </if>
         where id = #{id}
     </update>

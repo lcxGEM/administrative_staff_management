@@ -6,7 +6,7 @@
     </select>
 
     <select id="queryAllVo" resultType="com.zzu.staff.management.entity.SchoolVo">
-        select school.id,name,region,school_type,type_name from school inner join school_type on school.school_type = school_type.id
+        select school.id,name,school_type,type_name from school inner join school_type on school.school_type = school_type.id
     </select>
 
     <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.School">
@@ -14,7 +14,7 @@
     </select>
 
     <insert id="insert" parameterType="com.zzu.staff.management.entity.School">
-        insert into school (name, region, school_type) values(#{name},#{region},#{schoolType})
+        insert into school (name,school_type) values(#{name},#{schoolType})
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -25,9 +25,6 @@
         update school set
         <if test="#{name}!=null">
             name = #{name},
-        </if>
-        <if test="#{region}!=null">
-            region = #{region},
         </if>
         <if test="#{schoolType}!=null">
             school_type = #{schoolType}

@@ -9,8 +9,6 @@ public class SchoolVo {
 
     private String name;
 
-    private String region;
-
     private Integer schoolType;
 
     private String typeName;

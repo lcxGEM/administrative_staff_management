@@ -13,7 +13,5 @@ public class School {
 
     private String name;
 
-    private String region;
-
     private Integer schoolType;
 }

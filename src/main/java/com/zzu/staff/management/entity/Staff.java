@@ -13,13 +13,15 @@ public class Staff {
 
     private Long id;
 
+    private Integer teacherType; //教师类型
+
     private String name;
+
+    private String identity;
 
     private Integer sex;
 
     private String tel;
-
-    private Integer age;
 
     private Date birthday;
 
@@ -30,4 +32,6 @@ public class Staff {
     private Long doctorSchool;
 
     private Float compositeIndex;
+
+    private String evaluation; //评价
 }

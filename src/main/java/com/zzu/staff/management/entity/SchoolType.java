@@ -7,11 +7,11 @@ import java.math.BigDecimal;
 @Data
 public class SchoolType {
 
-    private Integer id;
+    private Integer id; //编号
 
-    private String typeName;
+    private String typeName; //学校类型名
 
-    private Float schoolIndex;
+    private Float schoolIndex; //学校系数
 
     private Float undergraduateIndex;
 
@@ -19,7 +19,7 @@ public class SchoolType {
 
     private Float doctorIndex;
 
-    private Float sumIndex;
+    private Float sumIndex;  //综合系数
 
     public Float getSumIndex() {
         Float sum = this.doctorIndex*this.masterIndex*this.undergraduateIndex;

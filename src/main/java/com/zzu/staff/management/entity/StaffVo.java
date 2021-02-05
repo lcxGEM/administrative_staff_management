@@ -2,13 +2,24 @@ package com.zzu.staff.management.entity;
 
 import lombok.Data;
 
+import java.util.Date;
+
+@Data
 public class StaffVo {
 
     private Long id;
 
+    private Integer teacherType; //教师类型
+
     private String name;
 
+    private String identity;
+
+    private Integer sex;
+
     private String tel;
+
+    private Date birthday;
 
     private Long undergraduateSchool;
 
@@ -18,156 +29,48 @@ public class StaffVo {
 
     private String uSchoolName;
 
-    private Long uSchoolIndex;
-
     private String mSchoolName;
-
-    private Long mSchoolIndex;
 
     private String dSchoolName;
 
-    private Long dSchoolIndex;
-
     private Float compositeIndex;
 
-    private Integer status;
-
-    public void setUndergraduateSchool(Long undergraduateSchool) {
-        if(undergraduateSchool!=null){
-            this.undergraduateSchool = undergraduateSchool;
-        }else{
-            this.undergraduateSchool = new Long(0);
-        }
-    }
-
-    public void setMasterSchool(Long masterSchool) {
-        if(masterSchool!=null){
-            this.masterSchool = masterSchool;
-        }else {
-            this.masterSchool = new Long(0);
-        }
-    }
-
-    public void setDoctorSchool(Long doctorSchool) {
-        if(doctorSchool!=null) {
-            this.doctorSchool = doctorSchool;
-        }else {
-            this.doctorSchool = new Long(0);
-        }
-    }
-
-    public void setmSchoolName(String mSchoolName) {
-        if(mSchoolName!=null&&!mSchoolName.equals("")){
-            this.mSchoolName = mSchoolName;
-        }else{
-            this.mSchoolName = "无";
-        }
-    }
-
-    public void setmSchoolIndex(Long mSchoolIndex) {
-        if(mSchoolIndex!=null) {
-            this.mSchoolIndex = mSchoolIndex;
-        }else{
-            this.mSchoolIndex = new Long(1);
-        }
-    }
-    public void setdSchoolName(String dSchoolName) {
-        if(dSchoolName!=null&&!dSchoolName.equals("")){
-            this.dSchoolName = dSchoolName;
-        }else{
-            this.dSchoolName = "无";
-        }
-    }
-
-    public void setdSchoolIndex(Long dSchoolIndex) {
-        if(dSchoolIndex!=null) {
-            this.dSchoolIndex = dSchoolIndex;
-        }else{
-            this.dSchoolIndex = new Long(1);
-        }
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
+    private String evaluation; //评价
 
     public Long getUndergraduateSchool() {
-        return undergraduateSchool;
+        if(undergraduateSchool!=null){
+            return this.undergraduateSchool;
+        }else{
+            return new Long(0);
+        }
     }
 
     public Long getMasterSchool() {
-        return masterSchool;
+        if(masterSchool!=null){
+            return this.masterSchool;
+        }else {
+            return new Long(0);
+        }
     }
 
     public Long getDoctorSchool() {
-        return doctorSchool;
+        if(doctorSchool!=null) {
+            return this.doctorSchool;
+        }else {
+            return new Long(0);
+        }
     }
 
     public String getuSchoolName() {
-        return uSchoolName;
-    }
-
-    public void setuSchoolName(String uSchoolName) {
-        this.uSchoolName = uSchoolName;
-    }
-
-    public Long getuSchoolIndex() {
-        return uSchoolIndex;
-    }
-
-    public void setuSchoolIndex(Long uSchoolIndex) {
-        this.uSchoolIndex = uSchoolIndex;
+        return uSchoolName!=null? uSchoolName:"无";
     }
 
     public String getmSchoolName() {
-        return mSchoolName;
-    }
-
-    public Long getmSchoolIndex() {
-        return mSchoolIndex;
+        return mSchoolName!=null?mSchoolName:"无";
     }
 
     public String getdSchoolName() {
-        return dSchoolName;
+        return dSchoolName!=null?dSchoolName:"无";
     }
 
-    public Long getdSchoolIndex() {
-        return dSchoolIndex;
-    }
-
-    public Float getCompositeIndex() {
-        return compositeIndex;
-    }
-
-    public void setCompositeIndex(Float compositeIndex) {
-        this.compositeIndex = compositeIndex;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
 }
