@@ -73,4 +73,7 @@ public class StaffVo {
         return dSchoolName!=null?dSchoolName:"无";
     }
 
+    public String getTeacherType() {
+        return TeacherType.getTeacherType(teacherType);
+    }
 }
