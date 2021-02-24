@@ -21,8 +21,13 @@ public class SchoolImpl implements SchoolService {
     }
 
     @Override
-    public List<SchoolVo> queryAllVo() {
-        return schoolMapper.queryAllVo();
+    public List<SchoolVo> queryAllVo(String sName,Integer sType) {
+        String trim = sName.trim();
+        if(trim.length()==0&&sType==0){
+            return schoolMapper.queryAllVo();
+        }else {
+            return schoolMapper.searchAllVo(trim,sType);
+        }
     }
 
     @Override

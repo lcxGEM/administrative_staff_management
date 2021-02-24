@@ -31,8 +31,13 @@ public class StaffImpl implements StaffService {
     }
 
     @Override
-    public List<StaffVo> queryAllVo() {
-        return staffMapper.queryAllVo();
+    public List<StaffVo> queryAllVo(String sName, Integer gsType, Integer msType, Integer dsType) {
+        String trim = sName.trim();
+        if(trim.length()==0&&gsType==0&&msType==0&&dsType==0){
+            return staffMapper.queryAllVo();
+        }else {
+            return staffMapper.searchAllVo(trim,gsType,msType,dsType);
+        }
     }
 
     @Override
@@ -52,11 +57,22 @@ public class StaffImpl implements StaffService {
 
     @Override
     public int update(Staff staff) {
+        staff = setCompositeIndexAndEvaluation(staff);
         return staffMapper.update(staff);
     }
 
     @Override
     public int staffAdd(Staff staff) {
+        staff = setCompositeIndexAndEvaluation(staff);
+        try{
+            return staffMapper.insert(staff);
+        }catch (Exception e){
+            e.printStackTrace();
+            return -1;
+        }
+    }
+
+    private Staff setCompositeIndexAndEvaluation(Staff staff){
         float masterIndex = 1f;   //硕士基准值
         if(staff.getMasterSchool()!=0){
             School masterSchool = schoolMapper.queryById(staff.getMasterSchool());//硕士学校
@@ -90,11 +106,6 @@ public class StaffImpl implements StaffService {
         }else {
             staff.setEvaluation("差");
         }
-        try{
-            return staffMapper.insert(staff);
-        }catch (Exception e){
-            e.printStackTrace();
-            return -1;
-        }
+        return staff;
     }
 }

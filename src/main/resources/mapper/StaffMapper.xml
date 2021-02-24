@@ -16,6 +16,27 @@
         (select staff.id,school.name as dschoolname,doctor_school
          from staff,school,school_type
          where staff.doctor_school = school.id and school.school_type = school_type.id) as a3 on a2.id = a3.id
+         order by composite_index desc
+    </select>
+
+    <select id="searchAllVo"  resultType="com.zzu.staff.management.entity.StaffVo">
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,dschoolname,composite_index,evaluation from
+        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,evaluation
+         from staff,school,school_type
+         where staff.undergraduate_school = school.id and school.school_type = school_type.id <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>) as a2 left join
+        (select staff.id,school.name as mschoolname,master_school
+         from staff,school,school_type
+         where staff.master_school = school.id and school.school_type = school_type.id <if test="msType gt 0">and school_type.id &lt;= #{msType}</if>) as a1 on a2.id=a1.id left join
+        (select staff.id,school.name as dschoolname,doctor_school
+         from staff,school,school_type
+         where staff.doctor_school = school.id and school.school_type = school_type.id <if test="dsType gt 0">and school_type.id &lt;= #{dsType}</if>) as a3 on a2.id = a3.id
+        <where>
+            <if test="msType gt 0">master_school>0</if>
+            <if test="dsType gt 0">and doctor_school>0</if>
+            <if test="#{trim}!=''">and name like CONCAT('%',#{trim},'%')</if>
+        </where>
+
+        order by composite_index desc
     </select>
 
     <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.Staff">
@@ -39,7 +60,7 @@
         <if test="#{tel}!=null">
             tel = #{tel},
         </if>
-        <if test="#{age}!=null">
+        <if test="#{identity}!=null">
             identity = #{identity},
         </if>
         <if test="#{teacherType}!=null">
@@ -59,6 +80,9 @@
         </if>
         <if test="#{doctorSchool}!=null">
             doctor_school = #{doctorSchool},
+        </if>
+        <if test="#{compositeIndex}!=null">
+            composite_index  = #{compositeIndex},
         </if>
         <if test="#{evaluation}!=null">
             evaluation = #{evaluation}

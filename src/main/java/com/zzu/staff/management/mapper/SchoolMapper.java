@@ -3,6 +3,7 @@ package com.zzu.staff.management.mapper;
 import com.zzu.staff.management.entity.School;
 import com.zzu.staff.management.entity.SchoolVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface SchoolMapper {
     int deleteById(long id);
 
     int update(School school);
+
+    List<SchoolVo> searchAllVo(String sName, @Param("sType") Integer sType);
 }

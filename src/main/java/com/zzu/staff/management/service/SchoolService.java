@@ -8,7 +8,7 @@ import java.util.List;
 public interface SchoolService {
     List<School> queryAll();
 
-    List<SchoolVo> queryAllVo();
+    List<SchoolVo> queryAllVo(String sName, Integer sType);
 
     School queryById(long id);
 

@@ -4,9 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c4a677-e487-4ee0-aa24-3a37e1f9a35c" name="Default Changelist" comment="前台添加职工功能">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/TeacherType.java" afterDir="false" />
+    <list default="true" id="c9c4a677-e487-4ee0-aa24-3a37e1f9a35c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/administrative_staff_management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/administrative_staff_management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/TeacherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/TeacherType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +39,8 @@
         <option value="Interface" />
         <option value="JavaScript File" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,6 +62,9 @@
         <option name="userSettingsFile" value="F:\Program_Files\apache-maven-3.5.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1nSH8JKd6Fi5zZFxICq8ZOsGBHD" />
   <component name="ProjectLevelVcsManager">
@@ -154,7 +177,16 @@
       <workItem from="1612057990317" duration="7167000" />
       <workItem from="1612315294114" duration="3739000" />
       <workItem from="1612428013731" duration="4233000" />
-      <workItem from="1612488152488" duration="4213000" />
+      <workItem from="1612488152488" duration="9461000" />
+      <workItem from="1612574789662" duration="2968000" />
+      <workItem from="1612598257284" duration="3419000" />
+      <workItem from="1612684382850" duration="2797000" />
+      <workItem from="1613612047516" duration="12626000" />
+      <workItem from="1613695561371" duration="5176000" />
+      <workItem from="1613785951362" duration="950000" />
+      <workItem from="1613805902043" duration="6711000" />
+      <workItem from="1613869977620" duration="1596000" />
+      <workItem from="1614150351220" duration="1971000" />
     </task>
     <task id="LOCAL-00001" summary="后端基础搭建完成">
       <created>1611385571791</created>
@@ -177,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612490900552</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="添加教师类型枚举类">
+      <created>1612492832551</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1612492832551</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +238,7 @@
     <MESSAGE value="后端基础搭建完成" />
     <MESSAGE value="基本功能" />
     <MESSAGE value="前台添加职工功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="前台添加职工功能" />
+    <MESSAGE value="添加教师类型枚举类" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加教师类型枚举类" />
   </component>
 </project>

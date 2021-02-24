@@ -9,7 +9,7 @@ public interface StaffService {
 
     List<Staff> queryAll();
 
-    List<StaffVo> queryAllVo();
+    List<StaffVo> queryAllVo(String sName, Integer gsType, Integer msType, Integer dsType);
 
     Staff queryById(long id);
 

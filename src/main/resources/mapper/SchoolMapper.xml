@@ -9,6 +9,18 @@
         select school.id,name,school_type,type_name from school inner join school_type on school.school_type = school_type.id
     </select>
 
+    <select id="searchAllVo" resultType="com.zzu.staff.management.entity.SchoolVo">
+        select school.id,name,school_type,type_name from school inner join school_type on school.school_type = school_type.id
+        <where>
+            <if test="sType gt 0">
+                school_type = #{sType}
+            </if>
+            <if test="#{sName}!=''">
+                and name like CONCAT('%',#{sName},'%')
+            </if>
+        </where>
+    </select>
+
     <select id="queryById" parameterType="java.lang.Long" resultType="com.zzu.staff.management.entity.School">
         select * from school where id = #{id}
     </select>
