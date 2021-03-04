@@ -4,26 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9c4a677-e487-4ee0-aa24-3a37e1f9a35c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jsqlparser_jsqlparser_0_9_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_autoconfigure_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_pagehelper_pagehelper_spring_boot_starter_1_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolData.java" afterDir="false" />
+    <list default="true" id="c9c4a677-e487-4ee0-aa24-3a37e1f9a35c" name="Default Changelist" comment="初步完成">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_virtuald_curvesapi_1_04.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_14.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_jul_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_slf4j_impl_2_13_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_6_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_aspectj_aspectjweaver_1_9_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_log4j2_2_3_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/util/WebLogAspect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/administrative_staff_management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/administrative_staff_management.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_13_3.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_3_4_RELEASE.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/config/CorsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/config/CorsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/config/DruidConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/config/DruidConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/ManagerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/School.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/School.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/TeacherType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/TeacherType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" afterDir="false" />
@@ -40,6 +54,7 @@
         <option value="JavaScript File" />
         <option value="HTML File" />
         <option value="Enum" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -86,7 +101,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../booking_service" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -99,9 +114,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\workSpace\idea-workspace\administrative_staff_management\src\main\resources" />
       <recent name="F:\workSpace\idea-workspace\administrative_staff_management\src\main\resources\static" />
       <recent name="F:\workSpace\idea-workspace\administrative_staff_management\src\main\resources\templates" />
-      <recent name="F:\workSpace\idea-workspace\administrative_staff_management\src\main\resources" />
       <recent name="F:\workSpace\idea-workspace\administrative_staff_management\src\main\resources\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -186,7 +201,15 @@
       <workItem from="1613785951362" duration="950000" />
       <workItem from="1613805902043" duration="6711000" />
       <workItem from="1613869977620" duration="1596000" />
-      <workItem from="1614150351220" duration="1971000" />
+      <workItem from="1614150351220" duration="3476000" />
+      <workItem from="1614241065371" duration="1412000" />
+      <workItem from="1614305450890" duration="10288000" />
+      <workItem from="1614687946074" duration="593000" />
+      <workItem from="1614733624033" duration="7688000" />
+      <workItem from="1614754304135" duration="6691000" />
+      <workItem from="1614771381488" duration="5298000" />
+      <workItem from="1614820282743" duration="2063000" />
+      <workItem from="1614842132045" duration="9121000" />
     </task>
     <task id="LOCAL-00001" summary="后端基础搭建完成">
       <created>1611385571791</created>
@@ -216,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612492832551</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="初步完成">
+      <created>1614152831949</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614152831949</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +269,7 @@
     <MESSAGE value="基本功能" />
     <MESSAGE value="前台添加职工功能" />
     <MESSAGE value="添加教师类型枚举类" />
-    <option name="LAST_COMMIT_MESSAGE" value="添加教师类型枚举类" />
+    <MESSAGE value="初步完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="初步完成" />
   </component>
 </project>

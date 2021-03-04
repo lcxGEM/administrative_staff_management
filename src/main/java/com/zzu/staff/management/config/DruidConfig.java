@@ -13,6 +13,9 @@ import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * druid 监控配置 访问 http://IP:端口/项目名/druid
+ */
 @Configuration
 public class DruidConfig {
 

@@ -1,12 +1,12 @@
 package com.zzu.staff.management.entity;
 
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class StaffVo {
+public class StaffVo implements Serializable {
 
     private Long id;
 

@@ -2,13 +2,17 @@ package com.zzu.staff.management.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.zzu.staff.management.entity.SchoolVo;
 import com.zzu.staff.management.entity.Staff;
 import com.zzu.staff.management.entity.StaffVo;
 import com.zzu.staff.management.service.StaffService;
+import org.apache.poi.hssf.usermodel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -23,13 +27,24 @@ public class StaffController {
         return staffService.queryAll();
     }
 
+    /**
+     * 职工前端展示信息
+     * 分页 模糊查询功能
+     * @param pageNum
+     * @param pageSize
+     * @param sName
+     * @param gsType
+     * @param msType
+     * @param dsType
+     * @return
+     */
     @GetMapping("queryAllVo/{pageNum}/{pageSize}/{sName}/{gsType}/{msType}/{dsType}")
     public PageInfo<StaffVo> queryAllVo(@PathVariable("pageNum")int pageNum,
                                         @PathVariable("pageSize") int pageSize,
-                                        @PathVariable("sName")String sName,
-                                        @PathVariable("gsType")Integer gsType,
-                                        @PathVariable("msType")Integer msType,
-                                        @PathVariable("dsType")Integer dsType){
+                                        @PathVariable("sName")String sName, //模糊查询数据：姓名关键字
+                                        @PathVariable("gsType")Integer gsType, //模糊查询数据：学校关键字
+                                        @PathVariable("msType")Integer msType, //
+                                        @PathVariable("dsType")Integer dsType){ //
 
         PageHelper.startPage(pageNum, pageSize);
         List<StaffVo> schoolVoList = staffService.queryAllVo(sName,gsType,msType,dsType);
@@ -37,10 +52,10 @@ public class StaffController {
         return pageInfo;
     }
 
-    @PostMapping("add")
-    public int add(Staff staff){
-        return staffService.insert(staff);
-    }
+//    @PostMapping("add")
+//    public int add(Staff staff){
+//        return staffService.insert(staff);
+//    }
 
     @GetMapping("delete/{id}")
     public int delete(@PathVariable("id")long id){
@@ -72,5 +87,60 @@ public class StaffController {
             }
         }
         return a;
+    }
+
+    /**
+     * 从数据库导出Excel数据
+     * @param response
+     */
+    @GetMapping("downloadAll")
+    public void downloadAll(HttpServletResponse response){
+        HSSFWorkbook workbook = new HSSFWorkbook();
+        HSSFSheet sheet = workbook.createSheet("郑州大学教师学历排名表");
+        List<StaffVo> classmateList = staffService.queryAllVo(" ",0,0,0);
+        SimpleDateFormat a = new SimpleDateFormat("yyyyMMddHHmmss");
+        String fileName = "TeacherCompositeIndex_"+ a.format(new Date()) + ".xls";//设置要导出的文件的名字
+        //新增数据行，并且设置单元格数据
+        int rowNum = 1;
+        String[] headers = { "教师类型", "姓名", "性别", "联系方式","身份证","出生日期","本科学校","硕士学校","博士学校","综合指数","评价"};
+        //headers表示excel表中第一行的表头
+        HSSFRow row = sheet.createRow(0);
+        //在excel表中添加表头
+        for(int i=0;i<headers.length;i++){
+            HSSFCell cell = row.createCell(i);
+            HSSFRichTextString text = new HSSFRichTextString(headers[i]);
+            cell.setCellValue(text);
+        }
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+        //在表中存放查询到的数据放入对应的列
+        for (StaffVo teacher : classmateList) {
+            HSSFRow row1 = sheet.createRow(rowNum);
+            row1.createCell(0).setCellValue(teacher.getTeacherType());
+            row1.createCell(1).setCellValue(teacher.getName());
+            row1.createCell(2).setCellValue(teacher.getSex()==1?"男":"女");
+            row1.createCell(3).setCellValue(teacher.getTel());
+            row1.createCell(4).setCellValue(teacher.getIdentity());
+            row1.createCell(5).setCellValue(sdf.format(teacher.getBirthday()));
+            row1.createCell(6).setCellValue(teacher.getuSchoolName());
+            row1.createCell(7).setCellValue(teacher.getmSchoolName());
+            row1.createCell(8).setCellValue(teacher.getdSchoolName());
+            row1.createCell(9).setCellValue(teacher.getCompositeIndex());
+            row1.createCell(10).setCellValue(teacher.getEvaluation());
+            rowNum++;
+        }
+        response.setContentType("application/octet-stream");
+        response.setHeader("Content-disposition", "attachment;filename=" + fileName);
+        try {
+            response.flushBuffer();
+            workbook.write(response.getOutputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                workbook.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

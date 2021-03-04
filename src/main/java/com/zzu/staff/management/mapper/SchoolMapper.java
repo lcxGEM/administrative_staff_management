@@ -22,6 +22,8 @@ public interface SchoolMapper {
 
     int deleteById(long id);
 
+    int deleteByType(int type);
+
     int update(School school);
 
     List<SchoolVo> searchAllVo(String sName, @Param("sType") Integer sType);

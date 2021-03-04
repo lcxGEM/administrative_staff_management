@@ -2,10 +2,14 @@ package com.zzu.staff.management.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class SchoolVo {
+public class SchoolVo  implements Serializable {
 
     private Long id;
+
+    private Integer sort;
 
     private String name;
 
