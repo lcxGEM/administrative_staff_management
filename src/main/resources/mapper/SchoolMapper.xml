@@ -12,6 +12,10 @@
         select school.id,name,school_type,type_name,sort from school inner join school_type on school.school_type = school_type.id
     </select>
 
+    <select id="queryByName" resultType="com.zzu.staff.management.entity.School" parameterType="java.lang.String">
+        select * from school where name = #{name}
+    </select>
+
     <select id="searchAllVo" resultType="com.zzu.staff.management.entity.SchoolVo">
         select school.id,name,school_type,type_name,sort from school inner join school_type on school.school_type = school_type.id
         <where>

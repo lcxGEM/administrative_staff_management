@@ -9,7 +9,7 @@ public interface StaffService {
 
     List<Staff> queryAll();
 
-    List<StaffVo> queryAllVo(String sName, Integer gsType, Integer msType, Integer dsType);
+    List<StaffVo> queryAllVo(String sName, int gsType, int msType, int dsType,int depart,int status,int stId);
 
     Staff queryById(long id);
 
@@ -20,4 +20,6 @@ public interface StaffService {
     int update(Staff  staff);
 
     int staffAdd(Staff staff);
+
+    int changeStatus(long id, int status);
 }

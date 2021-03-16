@@ -31,12 +31,20 @@ public class StaffImpl implements StaffService {
     }
 
     @Override
-    public List<StaffVo> queryAllVo(String sName, Integer gsType, Integer msType, Integer dsType) {
+    public List<StaffVo> queryAllVo(String sName, int gsType, int msType, int dsType,int depart,int status,int stId) {
         String trim = sName.trim();
-        if(trim.length()==0&&gsType==0&&msType==0&&dsType==0){
-            return staffMapper.queryAllVo();
-        }else {
-            return staffMapper.searchAllVo(trim,gsType,msType,dsType);
+        if(stId==0){
+            if(trim.length()==0&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
+                return staffMapper.queryAllVo();
+            }else {
+                return staffMapper.searchAllVo(trim,gsType,msType,dsType,depart,status);
+            }
+        }else{
+            if(trim.length()==0&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
+                return staffMapper.queryAllVoByDepart(stId);
+            }else {
+                return staffMapper.searchAllVoByDepart(trim,gsType,msType,dsType,depart,status,stId);
+            }
         }
     }
 
@@ -72,27 +80,51 @@ public class StaffImpl implements StaffService {
         }
     }
 
+    @Override
+    public int changeStatus(long id, int status) {
+        return staffMapper.changeStatus(id,status);
+    }
+
     private Staff setCompositeIndexAndEvaluation(Staff staff){
         float masterIndex = 1f;   //硕士基准值
-        if(staff.getMasterSchool()!=0){
-            School masterSchool = schoolMapper.queryById(staff.getMasterSchool());//硕士学校
-            masterIndex = schoolTypeMapper.queryById(masterSchool.getSchoolType()).getMasterIndex(); //硕士基准值
-        }
         float underIndex = 1f;
-        if(staff.getUndergraduateSchool()!=0){
-            School underSchool = schoolMapper.queryById(staff.getUndergraduateSchool());//学士
-            underIndex = schoolTypeMapper.queryById(underSchool.getSchoolType()).getUndergraduateIndex(); //学士基准值
-        }
         float doctorIndex = 1f;
-        if(staff.getDoctorSchool()!=0){
-            School doctorSchool = schoolMapper.queryById(staff.getDoctorSchool());//博士
-            doctorIndex = schoolTypeMapper.queryById(doctorSchool.getSchoolType()).getDoctorIndex(); //博士基准值
+        Float basicIndex = 1f;
+        if(staff.getTeacherType()==0){//原值
+            if(staff.getMasterSchool()!=0){
+                School masterSchool = schoolMapper.queryById(staff.getMasterSchool());//硕士学校
+                masterIndex = schoolTypeMapper.queryById(masterSchool.getSchoolType()).getMasterIndex(); //硕士基准值
+            }
+            if(staff.getUndergraduateSchool()!=0){
+                School underSchool = schoolMapper.queryById(staff.getUndergraduateSchool());//学士
+                underIndex = schoolTypeMapper.queryById(underSchool.getSchoolType()).getUndergraduateIndex(); //学士基准值
+            }
+            if(staff.getDoctorSchool()!=0){
+                School doctorSchool = schoolMapper.queryById(staff.getDoctorSchool());//博士
+                doctorIndex = schoolTypeMapper.queryById(doctorSchool.getSchoolType()).getDoctorIndex(); //博士基准值
+            }
+            //queryByName("基准值")
+            SchoolType schoolType=schoolTypeMapper.queryByName("基准值");
+            basicIndex = schoolType.getSumIndex(); //基准值
+        }else{//新值
+            if(staff.getMasterSchool()!=0){
+                School masterSchool = schoolMapper.queryById(staff.getMasterSchool());//硕士学校
+                masterIndex = schoolTypeMapper.queryById(masterSchool.getSchoolType()).getAmasterIndex(); //硕士基准值
+            }
+            if(staff.getUndergraduateSchool()!=0){
+                School underSchool = schoolMapper.queryById(staff.getUndergraduateSchool());//学士
+                underIndex = schoolTypeMapper.queryById(underSchool.getSchoolType()).getAundergraduateIndex(); //学士基准值
+            }
+            if(staff.getDoctorSchool()!=0){
+                School doctorSchool = schoolMapper.queryById(staff.getDoctorSchool());//博士
+                doctorIndex = schoolTypeMapper.queryById(doctorSchool.getSchoolType()).getAdoctorIndex(); //博士基准值
+            }
+            //queryByName("基准值")
+            SchoolType schoolType=schoolTypeMapper.queryById(40);
+            basicIndex = schoolType.getAsumIndex(); //基准值
         }
-
-        //queryByName("基准值")
-        SchoolType schoolType=schoolTypeMapper.queryById(40);
-        Float basicIndex = schoolType.getSumIndex(); //基准值
         Float compositeIndex = 75f*underIndex*masterIndex*doctorIndex/basicIndex;
+        System.out.println("------------------------------------>75*"+underIndex+"*"+masterIndex+"*"+doctorIndex+"/"+basicIndex+"="+compositeIndex);
         if(compositeIndex>100){
             compositeIndex = 100f;
         }

@@ -126,4 +126,9 @@ public class SchoolController {
         }
         return result;
     }
+
+    @GetMapping("addOther/{name}")
+    public long addOther(@PathVariable("name")String name) throws Exception {
+        return service.addOther(name);
+    }
 }

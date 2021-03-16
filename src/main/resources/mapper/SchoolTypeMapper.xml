@@ -9,9 +9,15 @@
         select * from school_type where id = #{id}
     </select>
 
+    <select id="queryByName" parameterType="java.lang.String" resultType="com.zzu.staff.management.entity.SchoolType">
+        select * from school_type where type_name = #{name}
+    </select>
+
     <insert id="insert" parameterType="com.zzu.staff.management.entity.SchoolType">
-        insert into school_type (type_name, school_index, undergraduate_index, master_index, doctor_index)
-        values(#{typeName},#{schoolIndex},#{undergraduateIndex},#{masterIndex},#{doctorIndex})
+        insert into school_type (type_name, school_index, undergraduate_index, master_index, doctor_index,
+                                 aschool_index,aundergraduate_index,amaster_index,adoctor_index)
+        values(#{typeName},#{schoolIndex},#{undergraduateIndex},#{masterIndex},#{doctorIndex},
+               #{aschoolIndex},#{aundergraduateIndex},#{amasterIndex},#{adoctorIndex})
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Integer">
@@ -23,7 +29,11 @@
             school_index = #{schoolIndex},
             undergraduate_index = #{undergraduateIndex},
             master_index = #{masterIndex},
-            doctor_index = #{doctorIndex}
+            doctor_index = #{doctorIndex},
+            aschool_index = #{aschoolIndex},
+            aundergraduate_index = #{aundergraduateIndex},
+            amaster_index = #{amasterIndex},
+            adoctor_index = #{adoctorIndex}
         where id = #{id}
     </update>
 </mapper>

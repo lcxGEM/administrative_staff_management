@@ -21,4 +21,6 @@ public interface SchoolService {
     int update(School school);
 
     int importData(MultipartFile file,int schoolType) throws IOException;
+
+    long addOther(String name) throws Exception;
 }

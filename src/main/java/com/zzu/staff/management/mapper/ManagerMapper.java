@@ -1,7 +1,6 @@
 package com.zzu.staff.management.mapper;
 
 import com.zzu.staff.management.entity.Manager;
-import com.zzu.staff.management.entity.School;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -19,4 +18,6 @@ public interface ManagerMapper {
     int deleteById(int id);
 
     int update(Manager manager);
+
+    List<Manager> searchAll(String trim, int department);
 }

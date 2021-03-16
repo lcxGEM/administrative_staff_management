@@ -18,4 +18,6 @@ public interface SchoolTypeMapper {
     int deleteById(int id);
 
     int update(SchoolType schoolType);
+
+    SchoolType queryByName(String name);
 }

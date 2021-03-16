@@ -38,6 +38,12 @@ public class StaffVo implements Serializable {
 
     private String evaluation; //评价
 
+    private String departmentName;
+
+    private Integer department;
+
+    private Integer status;
+
     public Long getUndergraduateSchool() {
         if(undergraduateSchool!=null){
             return this.undergraduateSchool;

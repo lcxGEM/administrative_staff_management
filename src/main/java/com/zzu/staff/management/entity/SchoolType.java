@@ -21,11 +21,29 @@ public class SchoolType {
 
     private Float sumIndex;  //综合系数
 
+    private Float aschoolIndex; //学校系数
+
+    private Float aundergraduateIndex;
+
+    private Float amasterIndex;
+
+    private Float adoctorIndex;
+
+    private Float asumIndex;  //综合系数
+
     public Float getSumIndex() {
         Float sum = this.doctorIndex*this.masterIndex*this.undergraduateIndex;
         BigDecimal b = new BigDecimal(sum);
         float f1 = b.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
         this.sumIndex = f1;
         return sumIndex;
+    }
+
+    public Float getAsumIndex() {
+        Float sum = this.adoctorIndex*this.amasterIndex*this.aundergraduateIndex;
+        BigDecimal b = new BigDecimal(sum);
+        float f1 = b.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        this.asumIndex = f1;
+        return asumIndex;
     }
 }

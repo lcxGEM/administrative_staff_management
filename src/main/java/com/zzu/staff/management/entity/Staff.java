@@ -36,4 +36,8 @@ public class Staff {
     private Float compositeIndex;
 
     private String evaluation; //评价
+
+    private Integer department;
+
+    private Integer status;
 }

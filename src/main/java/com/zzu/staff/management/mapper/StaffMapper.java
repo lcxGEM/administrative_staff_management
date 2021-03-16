@@ -24,5 +24,22 @@ public interface StaffMapper {
 
     int update(Staff  staff);
 
-    List<StaffVo> searchAllVo(String trim, @Param("gsType")Integer gsType, @Param("msType")Integer msType, @Param("dsType") Integer dsType);
+    List<StaffVo> searchAllVo(String trim,
+                              @Param("gsType")Integer gsType,
+                              @Param("msType")int msType,
+                              @Param("dsType")int dsType,
+                              @Param("depart")int depart,
+                              @Param("status")int status);
+
+    List<StaffVo> queryAllVoByDepart(int stId);
+
+    List<StaffVo> searchAllVoByDepart(String trim,
+                                      @Param("gsType")Integer gsType,
+                                      @Param("msType")int msType,
+                                      @Param("dsType")int dsType,
+                                      @Param("depart")int depart,
+                                      @Param("status")int status,
+                                      @Param("stId") int stId);
+
+    int changeStatus(@Param("id") long id, @Param("status") int status);
 }

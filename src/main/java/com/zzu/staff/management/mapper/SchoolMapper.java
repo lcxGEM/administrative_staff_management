@@ -16,6 +16,8 @@ public interface SchoolMapper {
 
     List<SchoolVo> queryAllVo();
 
+    School queryByName(String name);
+
     School queryById(long id);
 
     int insert(School school);

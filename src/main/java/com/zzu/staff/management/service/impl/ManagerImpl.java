@@ -15,8 +15,14 @@ public class ManagerImpl implements ManagerService {
     private ManagerMapper managerMapper;
 
     @Override
-    public List<Manager> queryAll() {
-        return managerMapper.queryAll();
+    public List<Manager> queryAll(String name,int department) {
+
+        String trim = name.trim();
+        if(trim.length()==0&&department==-1){
+            return managerMapper.queryAll();
+        }else {
+            return managerMapper.searchAll(trim,department);
+        }
     }
 
     @Override

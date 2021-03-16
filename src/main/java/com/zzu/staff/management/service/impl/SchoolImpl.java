@@ -3,6 +3,7 @@ package com.zzu.staff.management.service.impl;
 import com.zzu.staff.management.entity.School;
 import com.zzu.staff.management.entity.SchoolVo;
 import com.zzu.staff.management.mapper.SchoolMapper;
+import com.zzu.staff.management.mapper.SchoolTypeMapper;
 import com.zzu.staff.management.service.SchoolService;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -24,6 +25,9 @@ public class SchoolImpl implements SchoolService {
 
     @Autowired
     private SchoolMapper schoolMapper;
+
+    @Autowired
+    private SchoolTypeMapper schoolTypeMapper;
 
     @Override
     public List<School> queryAll() {
@@ -109,5 +113,17 @@ public class SchoolImpl implements SchoolService {
             result+=schoolMapper.insert(school);
         }
         return result;
+    }
+
+    @Override
+    public long addOther(String name) throws Exception {
+        int type = schoolTypeMapper.queryByName("其他高校").getId();
+        School school = new School(null,name,type,99);
+        int a = schoolMapper.insert(school);
+        if(a==1){
+            return schoolMapper.queryByName(name).getId();
+        }else{
+            throw new Exception("添加新学校失败！！");
+        }
     }
 }

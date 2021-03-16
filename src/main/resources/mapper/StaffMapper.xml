@@ -8,30 +8,90 @@
     </select>
 
     <select id="queryAllVo" resultType="com.zzu.staff.management.entity.StaffVo">
-        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,dschoolname,composite_index,evaluation from
-        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,evaluation
-         from staff,school,school_type
-         where staff.undergraduate_school = school.id and school.school_type = school_type.id) as a2 left join
-        (select staff.id,school.name as mschoolname,master_school
-         from staff,school,school_type
-         where staff.master_school = school.id and school.school_type = school_type.id) as a1 on a2.id=a1.id left join
-        (select staff.id,school.name as dschoolname,doctor_school
-         from staff,school,school_type
-         where staff.doctor_school = school.id and school.school_type = school_type.id) as a3 on a2.id = a3.id
-         order by composite_index desc
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,
+                dschoolname,composite_index,evaluation,department,a2.`status`,department_name from
+            (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,
+                    evaluation,department,`status`,department_name
+                from staff,school,school_type,department
+                where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id
+            ) as a2 left join
+            (select staff.id,school.name as mschoolname,master_school
+                from staff,school,school_type
+                where staff.master_school = school.id and school.school_type = school_type.id
+            ) as a1 on a2.id=a1.id left join
+            (select staff.id,school.name as dschoolname,doctor_school
+                from staff,school,school_type
+                where staff.doctor_school = school.id and school.school_type = school_type.id
+            ) as a3 on a2.id = a3.id
+        order by composite_index desc
     </select>
 
     <select id="searchAllVo"  resultType="com.zzu.staff.management.entity.StaffVo">
-        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,dschoolname,composite_index,evaluation from
-        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,evaluation
-         from staff,school,school_type
-         where staff.undergraduate_school = school.id and school.school_type = school_type.id <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>) as a2 left join
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,
+               dschoolname,composite_index,evaluation,department,a2.`status`,department_name from
+        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,
+                evaluation,department,`status`,department_name
+            from staff,school,school_type,department
+            where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id
+                <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>
+                <if test="depart gt -1">and department = #{depart}</if>
+                <if test="status gt -1">and status = #{status}</if>
+        ) as a2 left join
         (select staff.id,school.name as mschoolname,master_school
-         from staff,school,school_type
-         where staff.master_school = school.id and school.school_type = school_type.id <if test="msType gt 0">and school_type.id &lt;= #{msType}</if>) as a1 on a2.id=a1.id left join
+            from staff,school,school_type
+            where staff.master_school = school.id and school.school_type = school_type.id <if test="msType gt 0">and school_type.id &lt;= #{msType}</if>
+        ) as a1 on a2.id=a1.id left join
         (select staff.id,school.name as dschoolname,doctor_school
-         from staff,school,school_type
-         where staff.doctor_school = school.id and school.school_type = school_type.id <if test="dsType gt 0">and school_type.id &lt;= #{dsType}</if>) as a3 on a2.id = a3.id
+            from staff,school,school_type
+            where staff.doctor_school = school.id and school.school_type = school_type.id <if test="dsType gt 0">and school_type.id &lt;= #{dsType}</if>
+        ) as a3 on a2.id = a3.id
+        <where>
+            <if test="msType gt 0">master_school>0</if>
+            <if test="dsType gt 0">and doctor_school>0</if>
+            <if test="#{trim}!=''">and name like CONCAT('%',#{trim},'%')</if>
+        </where>
+
+        order by composite_index desc
+    </select>
+
+    <select id="queryAllVoByDepart" resultType="com.zzu.staff.management.entity.StaffVo">
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,
+               dschoolname,composite_index,evaluation,department,a2.`status`,department_name from
+            (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,
+                    evaluation,department,`status`,department_name
+             from staff,school,school_type,department
+             where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id and department = #{stId}
+            ) as a2 left join
+            (select staff.id,school.name as mschoolname,master_school
+             from staff,school,school_type
+             where staff.master_school = school.id and school.school_type = school_type.id
+            ) as a1 on a2.id=a1.id left join
+            (select staff.id,school.name as dschoolname,doctor_school
+             from staff,school,school_type
+             where staff.doctor_school = school.id and school.school_type = school_type.id
+            ) as a3 on a2.id = a3.id
+        order by composite_index desc
+    </select>
+
+    <select id="searchAllVoByDepart"  resultType="com.zzu.staff.management.entity.StaffVo">
+        select a2.id,a2.name,identity,sex,tel,teacherType,birthday,undergraduate_school,uschoolname,master_school,mschoolname,doctor_school,
+        dschoolname,composite_index,evaluation,department,a2.`status`,department_name from
+        (select staff.id,staff.name,identity,sex,tel,teacherType,birthday,staff.undergraduate_school,school.name as uschoolname,composite_index,
+        evaluation,department,`status`,department_name
+        from staff,school,school_type,department
+        where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id and department = #{stId}
+        <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>
+        <if test="depart gt -1">and department = #{depart}</if>
+        <if test="status gt -1">and status = #{status}</if>
+        ) as a2 left join
+        (select staff.id,school.name as mschoolname,master_school
+        from staff,school,school_type
+        where staff.master_school = school.id and school.school_type = school_type.id <if test="msType gt 0">and school_type.id &lt;= #{msType}</if>
+        ) as a1 on a2.id=a1.id left join
+        (select staff.id,school.name as dschoolname,doctor_school
+        from staff,school,school_type
+        where staff.doctor_school = school.id and school.school_type = school_type.id <if test="dsType gt 0">and school_type.id &lt;= #{dsType}</if>
+        ) as a3 on a2.id = a3.id
         <where>
             <if test="msType gt 0">master_school>0</if>
             <if test="dsType gt 0">and doctor_school>0</if>
@@ -46,8 +106,8 @@
     </select>
 
     <insert id="insert" parameterType="com.zzu.staff.management.entity.Staff">
-        insert into staff (name, identity, sex, tel, teacherType, birthday, undergraduate_school, master_school, doctor_school, composite_index, evaluation)
-        values(#{name},#{identity},#{sex},#{tel},#{teacherType},#{birthday},#{undergraduateSchool},#{masterSchool},#{doctorSchool},#{compositeIndex},#{evaluation})
+        insert into staff (name, identity, sex, tel, teacherType, birthday, undergraduate_school, master_school, doctor_school, composite_index, evaluation,department)
+        values(#{name},#{identity},#{sex},#{tel},#{teacherType},#{birthday},#{undergraduateSchool},#{masterSchool},#{doctorSchool},#{compositeIndex},#{evaluation},#{department})
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Long">
@@ -87,8 +147,15 @@
             composite_index  = #{compositeIndex},
         </if>
         <if test="#{evaluation}!=null">
-            evaluation = #{evaluation}
+            evaluation = #{evaluation},
+        </if>
+        <if test="#{department}!=null">
+            department = #{department}
         </if>
         where id = #{id}
     </update>
+    <update id="changeStatus">
+        update staff set status = #{status} where id = #{id}
+    </update>
+
 </mapper>

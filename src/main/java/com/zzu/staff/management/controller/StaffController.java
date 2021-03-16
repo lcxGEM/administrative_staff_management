@@ -3,6 +3,7 @@ package com.zzu.staff.management.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.zzu.staff.management.entity.Staff;
+import com.zzu.staff.management.entity.StaffStatus;
 import com.zzu.staff.management.entity.StaffVo;
 import com.zzu.staff.management.service.StaffService;
 import org.apache.poi.hssf.usermodel.*;
@@ -30,24 +31,20 @@ public class StaffController {
     /**
      * 职工前端展示信息
      * 分页 模糊查询功能
-     * @param pageNum
-     * @param pageSize
-     * @param sName
-     * @param gsType
-     * @param msType
-     * @param dsType
-     * @return
      */
-    @GetMapping("queryAllVo/{pageNum}/{pageSize}/{sName}/{gsType}/{msType}/{dsType}")
+    @GetMapping("queryAllVo/{pageNum}/{pageSize}/{sName}/{gsType}/{msType}/{dsType}/{depart}/{status}/{stId}")
     public PageInfo<StaffVo> queryAllVo(@PathVariable("pageNum")int pageNum,
                                         @PathVariable("pageSize") int pageSize,
                                         @PathVariable("sName")String sName, //模糊查询数据：姓名关键字
                                         @PathVariable("gsType")Integer gsType, //模糊查询数据：学校关键字
                                         @PathVariable("msType")Integer msType, //
-                                        @PathVariable("dsType")Integer dsType){ //
+                                        @PathVariable("dsType")Integer dsType,
+                                        @PathVariable("depart")Integer depart,
+                                        @PathVariable("status")Integer status,
+                                        @PathVariable("stId")Integer stId){ //
 
         PageHelper.startPage(pageNum, pageSize);
-        List<StaffVo> schoolVoList = staffService.queryAllVo(sName,gsType,msType,dsType);
+        List<StaffVo> schoolVoList = staffService.queryAllVo(sName,gsType,msType,dsType,depart,status,stId);
         PageInfo<StaffVo> pageInfo = new PageInfo<>(schoolVoList);
         return pageInfo;
     }
@@ -93,16 +90,16 @@ public class StaffController {
      * 从数据库导出Excel数据
      * @param response
      */
-    @GetMapping("downloadAll")
-    public void downloadAll(HttpServletResponse response){
+    @GetMapping("downloadAll/{stId}")
+    public void downloadAll(HttpServletResponse response,@PathVariable("stId") Integer stId){
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("郑州大学教师学历排名表");
-        List<StaffVo> classmateList = staffService.queryAllVo(" ",0,0,0);
+        List<StaffVo> classmateList = staffService.queryAllVo(" ",0,0,0,-1,-1,stId);
         SimpleDateFormat a = new SimpleDateFormat("yyyyMMddHHmmss");
         String fileName = "TeacherCompositeIndex_"+ a.format(new Date()) + ".xls";//设置要导出的文件的名字
         //新增数据行，并且设置单元格数据
         int rowNum = 1;
-        String[] headers = { "教师类型", "姓名", "性别", "联系方式","身份证","出生日期","本科学校","硕士学校","博士学校","综合指数","评价"};
+        String[] headers = { "教师类型", "姓名", "性别", "联系方式","身份证","出生日期","本科学校","硕士学校","博士学校","综合指数","评价","院系","状态"};
         //headers表示excel表中第一行的表头
         HSSFRow row = sheet.createRow(0);
         //在excel表中添加表头
@@ -126,6 +123,8 @@ public class StaffController {
             row1.createCell(8).setCellValue(teacher.getdSchoolName());
             row1.createCell(9).setCellValue(teacher.getCompositeIndex());
             row1.createCell(10).setCellValue(teacher.getEvaluation());
+            row1.createCell(11).setCellValue(teacher.getDepartmentName());
+            row1.createCell(12).setCellValue(StaffStatus.getStatus(teacher.getStatus()));
             rowNum++;
         }
         response.setContentType("application/octet-stream");
@@ -142,5 +141,10 @@ public class StaffController {
                 e.printStackTrace();
             }
         }
+    }
+
+    @GetMapping("changestatus/{id}/{status}")
+    public int changeStatus(@PathVariable("id")long id,@PathVariable("status")int status){
+        return staffService.changeStatus(id,status);
     }
 }

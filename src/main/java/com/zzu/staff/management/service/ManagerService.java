@@ -5,7 +5,7 @@ import com.zzu.staff.management.entity.Manager;
 import java.util.List;
 
 public interface ManagerService {
-    List<Manager> queryAll();
+    List<Manager> queryAll(String name,int department);
 
     Manager queryById(int id);
 
