@@ -44,4 +44,9 @@ public class ManagerImpl implements ManagerService {
     public int update(Manager manager) {
         return managerMapper.update(manager);
     }
+
+    @Override
+    public int changePasswd(int id, String passwd) {
+        return managerMapper.changePasswd(id,passwd);
+    }
 }

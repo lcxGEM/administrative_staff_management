@@ -20,4 +20,6 @@ public interface ManagerMapper {
     int update(Manager manager);
 
     List<Manager> searchAll(String trim, int department);
+
+    int changePasswd(int id, String passwd);
 }

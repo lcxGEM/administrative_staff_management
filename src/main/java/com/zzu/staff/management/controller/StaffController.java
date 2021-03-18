@@ -32,10 +32,11 @@ public class StaffController {
      * 职工前端展示信息
      * 分页 模糊查询功能
      */
-    @GetMapping("queryAllVo/{pageNum}/{pageSize}/{sName}/{gsType}/{msType}/{dsType}/{depart}/{status}/{stId}")
+    @GetMapping("queryAllVo/{pageNum}/{pageSize}/{sName}/{teacherType}/{gsType}/{msType}/{dsType}/{depart}/{status}/{stId}")
     public PageInfo<StaffVo> queryAllVo(@PathVariable("pageNum")int pageNum,
                                         @PathVariable("pageSize") int pageSize,
                                         @PathVariable("sName")String sName, //模糊查询数据：姓名关键字
+                                        @PathVariable("teacherType")Integer teacherType,
                                         @PathVariable("gsType")Integer gsType, //模糊查询数据：学校关键字
                                         @PathVariable("msType")Integer msType, //
                                         @PathVariable("dsType")Integer dsType,
@@ -44,7 +45,7 @@ public class StaffController {
                                         @PathVariable("stId")Integer stId){ //
 
         PageHelper.startPage(pageNum, pageSize);
-        List<StaffVo> schoolVoList = staffService.queryAllVo(sName,gsType,msType,dsType,depart,status,stId);
+        List<StaffVo> schoolVoList = staffService.queryAllVo(sName,teacherType,gsType,msType,dsType,depart,status,stId);
         PageInfo<StaffVo> pageInfo = new PageInfo<>(schoolVoList);
         return pageInfo;
     }
@@ -86,6 +87,11 @@ public class StaffController {
         return a;
     }
 
+    @GetMapping("updateAll/{stId}")
+    public int updateAll(@PathVariable("stId")Integer stId){
+        return staffService.updateAll(stId);
+    }
+
     /**
      * 从数据库导出Excel数据
      * @param response
@@ -94,7 +100,7 @@ public class StaffController {
     public void downloadAll(HttpServletResponse response,@PathVariable("stId") Integer stId){
         HSSFWorkbook workbook = new HSSFWorkbook();
         HSSFSheet sheet = workbook.createSheet("郑州大学教师学历排名表");
-        List<StaffVo> classmateList = staffService.queryAllVo(" ",0,0,0,-1,-1,stId);
+        List<StaffVo> classmateList = staffService.queryAllVo(" ",-1,0,0,0,-1,-1,stId);
         SimpleDateFormat a = new SimpleDateFormat("yyyyMMddHHmmss");
         String fileName = "TeacherCompositeIndex_"+ a.format(new Date()) + ".xls";//设置要导出的文件的名字
         //新增数据行，并且设置单元格数据

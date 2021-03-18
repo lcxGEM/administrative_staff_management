@@ -62,4 +62,9 @@ public class ManagerController {
     public int updateById(Manager manager){
         return managerService.update(manager);
     }
+
+    @GetMapping("/changePasswd/{id}/{passwd}")
+    public int changePasswd(@PathVariable("id")int id,@PathVariable("passwd")String passwd){
+        return managerService.changePasswd(id,passwd);
+    }
 }

@@ -31,19 +31,19 @@ public class StaffImpl implements StaffService {
     }
 
     @Override
-    public List<StaffVo> queryAllVo(String sName, int gsType, int msType, int dsType,int depart,int status,int stId) {
+    public List<StaffVo> queryAllVo(String sName,int teacherType, int gsType, int msType, int dsType,int depart,int status,int stId) {
         String trim = sName.trim();
-        if(stId==0){
-            if(trim.length()==0&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
+        if(stId==0){//顶级管理员
+            if(trim.length()==0&&teacherType==-1&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
                 return staffMapper.queryAllVo();
             }else {
-                return staffMapper.searchAllVo(trim,gsType,msType,dsType,depart,status);
+                return staffMapper.searchAllVo(trim,teacherType,gsType,msType,dsType,depart,status);
             }
         }else{
-            if(trim.length()==0&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
+            if(trim.length()==0&&teacherType==-1&&gsType==0&&msType==0&&dsType==0&&depart==-1&&status==-1){
                 return staffMapper.queryAllVoByDepart(stId);
             }else {
-                return staffMapper.searchAllVoByDepart(trim,gsType,msType,dsType,depart,status,stId);
+                return staffMapper.searchAllVoByDepart(trim,teacherType,gsType,msType,dsType,depart,status,stId);
             }
         }
     }
@@ -83,6 +83,21 @@ public class StaffImpl implements StaffService {
     @Override
     public int changeStatus(long id, int status) {
         return staffMapper.changeStatus(id,status);
+    }
+
+    @Override
+    public int updateAll(int stId) {
+        int a=0;
+        if(stId!=0){
+            return -1;
+        }else{
+            List<Staff> staffList = staffMapper.queryAll();
+            for (Staff staff:staffList){
+                staff = setCompositeIndexAndEvaluation(staff);
+                a+=staffMapper.update(staff);
+            }
+            return a;
+        }
     }
 
     private Staff setCompositeIndexAndEvaluation(Staff staff){

@@ -33,6 +33,7 @@
                 evaluation,department,`status`,department_name
             from staff,school,school_type,department
             where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id
+                <if test="teacherType gt -1"> and teacherType = #{teacherType}</if>
                 <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>
                 <if test="depart gt -1">and department = #{depart}</if>
                 <if test="status gt -1">and status = #{status}</if>
@@ -80,6 +81,7 @@
         evaluation,department,`status`,department_name
         from staff,school,school_type,department
         where staff.undergraduate_school = school.id and school.school_type = school_type.id and staff.department = department_id and department = #{stId}
+        <if test="teacherType gt -1"> and teacherType = #{teacherType}</if>
         <if test="gsType gt 0">and school_type.id &lt;= #{gsType}</if>
         <if test="depart gt -1">and department = #{depart}</if>
         <if test="status gt -1">and status = #{status}</if>

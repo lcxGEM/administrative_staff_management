@@ -41,4 +41,8 @@
         </if>
         where id = #{id}
     </update>
+
+    <update id="changePasswd">
+        update manager set passwd = #{passwd} where id =#{id}
+    </update>
 </mapper>

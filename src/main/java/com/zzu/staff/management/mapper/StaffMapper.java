@@ -25,6 +25,7 @@ public interface StaffMapper {
     int update(Staff  staff);
 
     List<StaffVo> searchAllVo(String trim,
+                              @Param("teacherType")int teacherType,
                               @Param("gsType")Integer gsType,
                               @Param("msType")int msType,
                               @Param("dsType")int dsType,
@@ -34,6 +35,7 @@ public interface StaffMapper {
     List<StaffVo> queryAllVoByDepart(int stId);
 
     List<StaffVo> searchAllVoByDepart(String trim,
+                                      @Param("teacherType")int teacherType,
                                       @Param("gsType")Integer gsType,
                                       @Param("msType")int msType,
                                       @Param("dsType")int dsType,

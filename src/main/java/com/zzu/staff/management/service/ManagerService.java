@@ -14,4 +14,6 @@ public interface ManagerService {
     int deleteById(int id);
 
     int update(Manager manager);
+
+    int changePasswd(int id, String passwd);
 }

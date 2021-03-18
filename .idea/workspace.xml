@@ -5,36 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9c4a677-e487-4ee0-aa24-3a37e1f9a35c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/DepartmentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Department.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/DepartmentMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/DepartmentService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/DepartmentServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/ManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/ManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/SchoolController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/controller/StaffController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/SchoolType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/entity/StaffVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/ManagerMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/ManagerMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolTypeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/SchoolTypeMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/mapper/StaffMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/ManagerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/ManagerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/SchoolService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/StaffService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/ManagerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/ManagerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/SchoolImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/zzu/staff/management/service/impl/StaffImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DepartmentMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/ManagerMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/ManagerMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SchoolMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/SchoolTypeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SchoolTypeMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StaffMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -221,7 +203,13 @@
       <workItem from="1615777251738" duration="14433000" />
       <workItem from="1615857370613" duration="8833000" />
       <workItem from="1615880757611" duration="5378000" />
-      <workItem from="1615896650038" duration="1860000" />
+      <workItem from="1615896650038" duration="2376000" />
+      <workItem from="1615951531203" duration="334000" />
+      <workItem from="1615955998792" duration="1184000" />
+      <workItem from="1615961516065" duration="9474000" />
+      <workItem from="1615979726758" duration="122000" />
+      <workItem from="1615979979985" duration="6192000" />
+      <workItem from="1616030015004" duration="4474000" />
     </task>
     <task id="LOCAL-00001" summary="后端基础搭建完成">
       <created>1611385571791</created>
@@ -265,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614851505746</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="v1.2">
+      <created>1615898798795</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615898798795</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,6 +285,7 @@
     <MESSAGE value="添加教师类型枚举类" />
     <MESSAGE value="初步完成" />
     <MESSAGE value="v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
+    <MESSAGE value="v1.2" />
+    <option name="LAST_COMMIT_MESSAGE" value="v1.2" />
   </component>
 </project>

@@ -2,6 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zzu.staff.management.mapper.DepartmentMapper">
     <select id="queryAll" resultType="com.zzu.staff.management.entity.Department">
-        select * from department
+        select * from department where department_id>0
     </select>
 </mapper>
